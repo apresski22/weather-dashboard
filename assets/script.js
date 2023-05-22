@@ -9,7 +9,7 @@ var fetchButton = document.getElementById("fetch-button");
 
 function getApi() {
   var requestUrl =
-    "https://api.openweathermap.org/data/2.5/forecast?lat=32.7157&lon=117.1611&appid=f4e7f30e206822fc632d60d1295a44e8";
+    "http://api.openweathermap.org/geo/1.0/direct?q=San Diego,CA,US&limit=5&appid=f4e7f30e206822fc632d60d1295a44e8";
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
