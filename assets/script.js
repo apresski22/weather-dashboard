@@ -84,9 +84,18 @@ function makeForecastCard(data) {
   //select the parent container where everything will go and append to it
   console.log("this is to display weather");
   console.log(data);
-  console.log(data[0]);
-  var node = document.createElement("li");
-  forecast.appendChild(node);
+
+  var node1 = document.createElement("li");
+  node1.textContent = [
+    data.name +
+      data.localTime +
+      data.conditions +
+      data.temp +
+      data.humidity +
+      data.wind,
+  ];
+  console.log(data.name);
+  forecast.appendChild(node1);
 }
 
 //used activity 23 for example
