@@ -8,7 +8,7 @@ var cityInputEl = document.querySelector("cityname");
 // city name (city: {name}), date, icon respresentation of weather conditions , temp (list:main:temp), humidity (list[i].main:humidity)), wind speed (list[i].wind:{speed})
 //
 //search history, click on a city to be presented with current and future conditions
-var cityList = document.querySelector("ul");
+var forecast = document.querySelector("#forecast");
 
 function getGeoloc() {
   console.log("hello getgeoloc");
@@ -53,31 +53,40 @@ function getWeather(lat, lon) {
 function analyzeForecastData(data) {
   console.log("ANALYZING CURRECT FORECAST DATA");
   console.log(data);
-  console.log(data.city.name);
-  console.log(data.list[0].dt_txt);
-  console.log(data.list[0].weather[0].main);
-  console.log(data.list[0].weather[0].icon);
-  console.log(data.list[0].main.temp);
-  console.log(data.list[0].main.humidity);
-  console.log(data.list[0].wind.speed);
 
-  var name = data.city.name;
-  var localTime = data.list[0].dt_txt;
-  var conditions = data.list[0].weather[0].main;
-  var condIcon = data.list[0].weather[0].icon;
-  var temp = data.list[0].main.temp;
-  var humidity = data.list[0].main.humidity;
-  var wind = data.list[0].wind.speed;
+  //data with a list of 40 values,
+  //each of those is in 3 hour intervals
+  //
 
-  var currentWeather = [
-    name,
-    localTime,
-    conditions,
-    condIcon,
-    temp,
-    humidity,
-    wind,
-  ];
+  for (let i = 0; i < data.list.length; i += 8) {
+    var name = data.city.name;
+    var localTime = data.list[i].dt_txt;
+    var conditions = data.list[i].weather[0].main;
+    var condIcon = data.list[i].weather[0].icon;
+    var temp = data.list[i].main.temp;
+    var humidity = data.list[i].main.humidity;
+    var wind = data.list[i].wind.speed;
+
+    var currentWeather = {
+      name,
+      localTime,
+      conditions,
+      condIcon,
+      temp,
+      humidity,
+      wind,
+    };
+    makeForecastCard(currentWeather);
+  }
+}
+
+function makeForecastCard(data) {
+  //select the parent container where everything will go and append to it
+  console.log("this is to display weather");
+  console.log(data);
+  console.log(data[0]);
+  var node = document.createElement("li");
+  forecast.appendChild(node);
 }
 
 //used activity 23 for example

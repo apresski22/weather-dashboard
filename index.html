@@ -9,7 +9,7 @@
 
   <body class="min-100-vh flex-column bg-light">
     <header class="p-5 text-center text-white bg-primary">
-      <h1>Weather App</h1>
+      <h1>Weather Buddy</h1>
     </header>
     <main class="flex-row justify-center align-center col-auto p-4">
       <div class="col-7">
@@ -20,15 +20,11 @@
             </h2>
           </header>
           <div class="card-body flex-row justify-center p-4 text-center">
-            <p class="col-10 mb-3">
-              In the script.js file, create the correct URL for the fetch
-              request to list the cities.
-            </p>
-            <!-- <div class="card">
+            <div class="card">
               <h3 class="card-header text-uppercase">Search By City</h3>
               <form id="user-form" class="card-body">
                 <label class="form-label" for="cityname"
-                  >Name of City, State, Country Code</label
+                  >Enter City, State, Country Code</label
                 >
                 <input
                   name="cityname"
@@ -37,20 +33,12 @@
                   autofocus="true"
                   class="form-input"
                 />
-                <button type="submit" id="btn">Submit</button>
-                <ul class="col-8 mb-3"></ul>
               </form>
-            </div> -->
-            <div class="col-8 mb-3">
-              <button class="btn btn-primary" id="fetch-button">
-                Fetch cities
-              </button>
             </div>
-            <ul class="col-8 mb-3"></ul>
+              <button class="btn btn-primary" id="fetch-button">Search</button>
+            </div>
+            <ul id="forecast" class="col-8 mb-3"></ul>
           </div>
-          <footer class="card-footer text-center">
-            ^ You should see a list of the cities ^
-          </footer>
         </section>
       </div>
     </main>
